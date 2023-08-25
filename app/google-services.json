@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "958662276206",
+    "project_id": "arslan-car-parking",
+    "storage_bucket": "arslan-car-parking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958662276206:android:b259786751d20ed92e627f",
+        "android_client_info": {
+          "package_name": "com.example.arslancarparking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "958662276206-689trg9t13r9g3pc978ioe7nig1ekfud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQjPJUU1xDCWGiEXYmW_d5V8JFNCk5vg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "958662276206-689trg9t13r9g3pc978ioe7nig1ekfud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
