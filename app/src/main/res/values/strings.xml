@@ -3,4 +3,8 @@
 
     <!-- My Strings -->
     <string name="app_title"> Park Car with fully protection</string>
+    <string-array name="spinner_options">
+        <item>Un-Paid</item>
+        <item>Paid</item>
+    </string-array>
 </resources>

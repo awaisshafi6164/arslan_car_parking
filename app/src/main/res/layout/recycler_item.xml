@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recCard"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="2dp"
+    android:backgroundTint="@color/yellow"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recName"
+            android:text="Product Name"
+            android:textSize="22sp"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recRegistar"
+            android:text="Reg: 1234567890"
+            android:textSize="20sp"
+            android:layout_below="@id/recName"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recFee"
+            android:text="Fee: 8888"
+            android:textSize="18sp"
+            android:layout_below="@id/recRegistar"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recPhone"
+            android:text="Ph: 03xx0011223"
+            android:textSize="18sp"
+            android:layout_below="@id/recFee"
+            android:layout_marginStart="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recCateg"
+            android:text="Cat: Paid"
+            android:textSize="18sp"
+            android:layout_toEndOf="@id/recFee"
+            android:layout_below="@id/recRegistar"
+            android:textAlignment="textEnd"
+            android:layout_marginStart="20dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

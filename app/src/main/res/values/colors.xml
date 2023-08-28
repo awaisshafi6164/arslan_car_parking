@@ -15,4 +15,5 @@
 
     <color name="btn_color">#77DD77</color>
     <color name="bg_color">#34495E</color>
+    <color name="red_attention">#FF0000</color>
 </resources>

@@ -7,16 +7,75 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".HomeActivity"
-    android:background="@color/bg_color"
+    android:background="@color/white"
     android:padding="30dp">
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content">
+
+        <SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:id="@+id/search"
+            android:iconifiedByDefault="false"
+            android:searchHintIcon="@null"
+            android:queryHint="Search..."
+            android:focusable="false"
+            android:closeIcon="@drawable/baseline_clear_24"
+            android:searchIcon="@drawable/baseline_search_24"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/refresh"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/baseline_refresh_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search"
+        android:layout_marginTop="10dp"
+        android:minHeight="48dp"
+        android:padding="8dp"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView"
+        android:scrollbars="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/spinner"
         android:layout_weight="1"/>
 
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/fab"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:layout_marginEnd="60dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:backgroundTint="@color/lavender"-->
+<!--        android:src="@drawable/baseline_add_24"-->
+<!--        app:tint="@color/white"-->
+<!--        tools:ignore="SpeakableTextPresentCheck" />-->
+
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/fab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
@@ -24,6 +83,20 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="@color/btn_color"
+        android:text="Add new data"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/red_attention"
         android:text="Log out"
         android:textAlignment="center"
         android:textColor="@color/white"

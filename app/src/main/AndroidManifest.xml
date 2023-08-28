@@ -15,6 +15,12 @@
         android:theme="@style/Theme.ArslanCarParking"
         tools:targetApi="31">
         <activity
+            android:name=".activity_detail"
+            android:exported="false" />
+        <activity
+            android:name=".activity_upload"
+            android:exported="false" />
+        <activity
             android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity_detail"
+    android:background="@color/bg_color"
+    android:padding="30dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Car Detail"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:letterSpacing="0.2"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:background="@color/white"
+        android:elevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Name: "
+                        android:layout_marginLeft="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Car Name"
+                        android:id="@+id/detailName"
+                        android:layout_marginRight="20dp"
+                        android:paddingStart="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Registartion No: "
+                        android:layout_marginLeft="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Registration"
+                        android:id="@+id/detailPrice"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:paddingStart="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Fee: "
+                        android:layout_marginLeft="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Car Fee"
+                        android:id="@+id/detailCode"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:paddingStart="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Phone:  "
+                        android:layout_marginLeft="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone"
+                        android:id="@+id/detailPerc"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:paddingStart="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:text="Category: "
+                        android:layout_marginLeft="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Category"
+                        android:id="@+id/detailCatg"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        android:paddingStart="20dp"
+                        android:padding="5dp"
+                        android:textSize="24sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="20dp"
+                android:gravity="bottom|center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deleteButton"
+                    android:text="Delete"
+                    android:backgroundTint="@color/red_attention"
+                    android:layout_marginRight="10dp"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editButton"
+                    android:text="Edit"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
