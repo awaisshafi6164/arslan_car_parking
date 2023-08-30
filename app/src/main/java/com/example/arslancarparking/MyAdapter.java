@@ -42,15 +42,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(context, activity_detail.class);
-//
-//                intent.putExtra("Name", dataList.get(holder.getAdapterPosition()).getProductName());
-//                intent.putExtra("Code", dataList.get(holder.getAdapterPosition()).getProductRegistration());
-//                intent.putExtra("Price", dataList.get(holder.getAdapterPosition()).getProductPrice());
-//                intent.putExtra("Percentage", dataList.get(holder.getAdapterPosition()).getProductPhone());
-//                intent.putExtra("Category", dataList.get(holder.getAdapterPosition()).getProductCategory());
-//                intent.putExtra("Key",dataList.get(holder.getAdapterPosition()).getKey());
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, activity_detail.class);
+
+                intent.putExtra("Name", dataList.get(holder.getAdapterPosition()).getProductName());
+                intent.putExtra("Register", dataList.get(holder.getAdapterPosition()).getProductRegistration());
+                intent.putExtra("Price", dataList.get(holder.getAdapterPosition()).getProductPrice());
+                intent.putExtra("Phone", dataList.get(holder.getAdapterPosition()).getProductPhone());
+                intent.putExtra("Category", dataList.get(holder.getAdapterPosition()).getProductCategory());
+                intent.putExtra("Key",dataList.get(holder.getAdapterPosition()).getKey());
+                context.startActivity(intent);
 
             }
         });
