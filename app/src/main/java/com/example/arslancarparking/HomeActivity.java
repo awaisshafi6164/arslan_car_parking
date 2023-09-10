@@ -61,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton refresh;
     Button fab;
     Dialog dialogPaidtoUnpaid;
-    Button paidToUnpaidBTN;
+    Button paidToUnpaidBTN, recordBTN;
     RecyclerView recyclerView;
     List<DataClass> dataList;
     DatabaseReference databaseReference;
@@ -240,6 +240,15 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialogPaidtoUnpaid.show();
+            }
+        });
+
+        recordBTN = findViewById(R.id.recordBTN);
+        recordBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, activity_records.class);
+                startActivity(intent);
             }
         });
 

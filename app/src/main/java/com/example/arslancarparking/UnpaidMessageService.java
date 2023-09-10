@@ -29,7 +29,7 @@ public class UnpaidMessageService extends Service {
     DatabaseReference databaseReference;
     private Handler handler;
     private Runnable runnable;
-    private final int DELAY_SECONDS = 5 * 60 * 1000; // 36 hours in milliseconds --- 36 * 60 * 60 * 1000
+    private final int DELAY_SECONDS = 36 * 60 * 60 * 1000; // 36 hours in milliseconds --- 36 * 60 * 60 * 1000 // 5min = 5 * 60 * 1000
 
     @Override
     public void onCreate() {

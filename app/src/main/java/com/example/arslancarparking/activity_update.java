@@ -3,6 +3,7 @@ package com.example.arslancarparking;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
@@ -18,6 +19,10 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class activity_update extends AppCompatActivity {
 
@@ -112,6 +117,14 @@ public class activity_update extends AppCompatActivity {
         if(category.equals("Paid")){
             String message = "You have Paid "+name+", "+register+" fees.\nArslan Car Parking"; // Customize the message
             sendSMS(phone, message);
+
+            //save message to database
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+            String currentDate = sdf.format(new Date());
+
+            DatabaseReference  databaseRef = FirebaseDatabase.getInstance().getReference("Records");
+            DatabaseReference newMessageRef = databaseRef.child("record").child(currentDate);
+            newMessageRef.setValue(currentDate+": "+message);
         }
 
         DataClass dataClass = new DataClass(name, register, fee, phone, category);
