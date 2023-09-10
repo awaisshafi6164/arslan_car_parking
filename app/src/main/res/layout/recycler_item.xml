@@ -7,7 +7,7 @@
     android:id="@+id/recCard"
     android:layout_marginHorizontal="5dp"
     android:layout_marginVertical="2dp"
-    android:backgroundTint="@color/yellow"
+    android:backgroundTint="@color/bg_color"
     app:cardElevation="4dp">
 
     <RelativeLayout
@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recName"
+            android:textColor="@color/white"
             android:text="Product Name"
             android:textStyle="bold"
             android:textSize="22sp"
@@ -28,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recRegistar"
+            android:textColor="@color/white"
             android:text="Reg: 1234567890"
             android:textSize="20sp"
             android:layout_below="@id/recName"
@@ -38,6 +40,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/recFee"
             android:text="Fee: 8888"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_below="@id/recRegistar"
             android:layout_marginStart="20dp"/>
@@ -47,6 +50,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/recPhone"
             android:text="Ph: 03xx0011223"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_below="@id/recFee"
             android:layout_marginStart="20dp"/>
@@ -56,6 +60,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/recCateg"
             android:text="Cat: Paid"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:layout_toEndOf="@id/recFee"
             android:layout_below="@id/recRegistar"

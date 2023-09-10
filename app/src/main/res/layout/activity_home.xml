@@ -59,20 +59,19 @@
         android:layout_below="@id/spinner"
         android:layout_weight="1"/>
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fab"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginStart="40dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:layout_marginEnd="60dp"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:backgroundTint="@color/lavender"-->
-<!--        android:src="@drawable/baseline_add_24"-->
-<!--        app:tint="@color/white"-->
-<!--        tools:ignore="SpeakableTextPresentCheck" />-->
+    <Button
+        android:id="@+id/paidToUnpaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#2A4E2A"
+        android:text="Paid to Un-Paid"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/fab"
@@ -80,7 +79,6 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="@color/btn_color"
         android:text="Add new data"
@@ -94,7 +92,6 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:backgroundTint="@color/red_attention"
         android:text="Log out"

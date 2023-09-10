@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,7 @@ public class activity_update extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter<String> adapterCategory;
 
+    int checkPaid = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,12 +92,27 @@ public class activity_update extends AppCompatActivity {
 
     }
 
+    private void sendSMS(String phoneNumber, String message) {
+        try {
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+            Toast.makeText(this, "Message Send Successfully", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void updateData(){
         name = updateName.getText().toString().trim();
         register = updateRegister.getText().toString().trim();
         fee = updateFee.getText().toString().trim();
         phone = updatePhone.getText().toString().trim();
         String category = categoryTemp;
+
+        if(category.equals("Paid")){
+            String message = "You have Paid "+name+", "+register+" fees.\nArslan Car Parking"; // Customize the message
+            sendSMS(phone, message);
+        }
 
         DataClass dataClass = new DataClass(name, register, fee, phone, category);
         databaseReference.setValue(dataClass).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -109,7 +126,7 @@ public class activity_update extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(activity_update.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity_update.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

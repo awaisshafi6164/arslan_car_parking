@@ -39,11 +39,19 @@ public class activity_upload extends AppCompatActivity {
         productPhoneET = findViewById(R.id.uploadPhoneNumber);
         saveButton = findViewById(R.id.saveButton);
 
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveData();
+                String name = productNameET.getText().toString();
+                String registar = productRegistrationNo.getText().toString();
+                String price = productPriceET.getText().toString();
+                String phone = productPhoneET.getText().toString();
+                if(!name.isEmpty() && !registar.isEmpty() && !price.isEmpty() && !phone.isEmpty()){
+                    saveData();
+                }else{
+                    Toast.makeText(activity_upload.this, "Kindly Fill all the values", Toast.LENGTH_SHORT).show();
+                }
+                
             }
         });
 

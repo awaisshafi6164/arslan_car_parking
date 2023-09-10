@@ -3,11 +3,17 @@ package com.example.arslancarparking;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
+import android.telephony.SmsManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -15,6 +21,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,6 +60,8 @@ public class HomeActivity extends AppCompatActivity {
 
     ImageButton refresh;
     Button fab;
+    Dialog dialogPaidtoUnpaid;
+    Button paidToUnpaidBTN;
     RecyclerView recyclerView;
     List<DataClass> dataList;
     DatabaseReference databaseReference;
@@ -68,6 +78,11 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Start the UnpaidMessageService
+        Intent serviceIntent = new Intent(this, UnpaidMessageService.class);
+        startService(serviceIntent);
+        //
 
         firebaseAuth = FirebaseAuth.getInstance();
         Button logoutButton = findViewById(R.id.logout_button);
@@ -183,7 +198,90 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //Create the Dialog here
+        dialogPaidtoUnpaid = new Dialog(this);
+        dialogPaidtoUnpaid.setContentView(R.layout.dialog_paidtounpaid);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialogPaidtoUnpaid.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
+        }
+        dialogPaidtoUnpaid.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogPaidtoUnpaid.setCancelable(false); //Optional
+        dialogPaidtoUnpaid.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation; //Setting the animations to dialog
+
+        Button Yes = dialogPaidtoUnpaid.findViewById(R.id.btn_yes);
+        Button Cancel = dialogPaidtoUnpaid.findViewById(R.id.btn_cancel);
+
+        Yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Change all "Paid" category items to "Un-Paid"
+                for (DataClass data : dataList) {
+                    if ("Paid".equalsIgnoreCase(data.getProductCategory())) {
+                        databaseReference.child(data.getKey()).child("productCategory").setValue("Un-Paid");
+                    }
+                }
+                adapter.notifyDataSetChanged();
+                Toast.makeText(HomeActivity.this, "Changed Paid to Un-Paid", Toast.LENGTH_SHORT).show();
+                dialogPaidtoUnpaid.dismiss();
+            }
+        });
+
+
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "Cancel", Toast.LENGTH_SHORT).show();
+                dialogPaidtoUnpaid.dismiss();
+            }
+        });
+
+        paidToUnpaidBTN = findViewById(R.id.paidToUnpaid);
+        paidToUnpaidBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogPaidtoUnpaid.show();
+            }
+        });
+
+        //
+        //sendUnpaidMessages();
+        //
+
     }
+
+//    private void sendUnpaidMessages() {
+//        //
+//        final int DELAY_SECONDS = 30;// 129600 sec == 36 hrs
+//        final Handler handler = new Handler();
+//        Runnable sendSmsRunnable = new Runnable() {
+//            @Override
+//            public void run() {
+//                for (DataClass data : dataList) {
+//                    if ("Un-Paid".equalsIgnoreCase(data.getProductCategory())) {
+//                        String phoneNumber = data.getProductPhone(); // Get the user's phone number
+//                        String carName = data.getProductName();
+//                        String carRegister = data.getProductRegistration();
+//                        String carFee = data.getProductPrice();
+//                        String message = "You didn't Paid "+carName+", "+carRegister+" fees.\nYour car fees is "+carFee+" \nArslan Car Parking"; // Customize the message
+//
+//                        sendSMS(phoneNumber, message);
+//                    }
+//                }
+//            }
+//        };
+//        handler.postDelayed(sendSmsRunnable, DELAY_SECONDS * 1000);//delay handler
+//        //
+//    }
+//
+//    private void sendSMS(String phoneNumber, String message) {
+//        try {
+//            SmsManager smsManager = SmsManager.getDefault();
+//            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+//            Toast.makeText(this, "Message Send Successfully", Toast.LENGTH_SHORT).show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private void refreshMethod() {
         Intent intent = new Intent(this, HomeActivity.class);
